@@ -5,18 +5,10 @@ const contactSchema = new Schema({
         type: String,
         required: true
     },
-    lastName: {
-        type: String,
-        required: true
-    },
     email: {
         type: String,
         required: true,
         trim: true
-    },
-    subject: {
-        type: String,
-        required: true
     },
     content: {
         type: String,
