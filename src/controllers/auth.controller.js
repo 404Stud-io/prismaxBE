@@ -1,8 +1,13 @@
+const Login = require('../models/login');
 const User = require('../models/user');
 const jwt = require('jsonwebtoken');
 const { config } = require('../config/index');
 
 exports.logIn = async (req, res) => {
+    const { email } = req.body;
+    const registerLogin = new Login({ email })
+    const registerSaved = await registerLogin.save()
+
     const userExist = await User.findOne({ email: req.body.email });
     if (!userExist)
         return res.status(400).json({
